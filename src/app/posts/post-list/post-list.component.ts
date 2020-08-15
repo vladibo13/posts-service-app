@@ -2,6 +2,7 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Post } from '../post.model';
 import { PostsService } from '../posts.service';
 import { Subscription } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-post-list',
@@ -17,7 +18,7 @@ export class PostListComponent implements OnInit, OnDestroy {
   posts: Post[] = [];
   private postSub: Subscription;
 
-  constructor(private postService: PostsService) {}
+  constructor(private postService: PostsService, private http: HttpClient) {}
 
   ngOnInit(): void {
     console.log('ng oninit run');
@@ -33,5 +34,9 @@ export class PostListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.postSub.unsubscribe;
+  }
+
+  onDelete(id: string) {
+    this.postService.deletePost(id);
   }
 }
