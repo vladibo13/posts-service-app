@@ -1,3 +1,16 @@
 mat-toolbar {
   margin-bottom: 1rem;
 }
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
